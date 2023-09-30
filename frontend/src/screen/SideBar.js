@@ -13,6 +13,10 @@ function SideBar() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const home = ()=>{
+    navigate("/")
+  }
+
   const medicine = ()=>{
     navigate("/medicines")
   }
@@ -44,6 +48,11 @@ function SideBar() {
         <Offcanvas.Body>
        
         <div className="d-grid gap-2">
+
+        <Button variant="secondary" size="lg" onClick={home}>
+      HOME
+    </Button>
+
       <Button variant="primary" size="lg" onClick={appointments}>
       APPOINTMENTS
     </Button>
@@ -58,6 +67,14 @@ function SideBar() {
       </Button>
       <Button variant="secondary" size="lg" onClick={strayDogs}>
         STRAY PUPPIES
+      </Button>
+      <br /><br />
+      <Button variant="secondary" size="lg" onClick={strayDogs}>
+        Sign In
+     </Button>
+
+      <Button variant="secondary" size="lg" onClick={strayDogs}>
+        Sign Out
       </Button>
     </div>
     
