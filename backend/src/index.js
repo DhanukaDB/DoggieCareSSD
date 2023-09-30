@@ -21,6 +21,10 @@ app.use("/appointment",appointmentRouter);
 app.use("/user",userRouter);
 app.use("/sales", salesRouter)
 
+app.use('/api/auth', require('./routes/authenticationRoutes'));
+app.use('/api/admin', require('./routes/adminRoutes'));
+
+
 const initialize = async () => {
   try {
     await mongoose.connect(process.env.MONGO_CONNECT_URL);
