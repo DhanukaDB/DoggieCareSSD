@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Form, Button, Col, Container,Card } from 'react-bootstrap';
+import { Form, Button,Card } from 'react-bootstrap';
 import { FaLock } from "react-icons/fa";
 class DogDetails extends Component{
    

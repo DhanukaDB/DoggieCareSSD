@@ -15,7 +15,6 @@ export default function DogRegistration() {
   const [weight, setWeight]= useState(" ");
   const [age, setAge] = useState(" ");
   const [gender, setGender] = useState(" ");
- // const [timeval, onChange] = useState('10:00');
 
   function sendData(e) {
 

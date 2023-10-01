@@ -14,7 +14,6 @@ export default function Addappointment() {
   const [date, setdate] = useState(" ");
   const [time, settime] = useState(" ");
   const [reason, setreason] = useState(" ");
-  // const [timeval, onChange] = useState('10:00');
 
   function sendData(e) {
 

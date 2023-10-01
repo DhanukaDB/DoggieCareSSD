@@ -45,18 +45,6 @@ function ViewRescuedDogs(props) {
         getRescuedDogs();
     }, [])
 
-    /*//delete funtion
-    function onDelete(_id){
-        console.log(_id);
-        axios.delete("http://localhost:5000/createRescuedDog/"+_id ).then((res) =>{
-           alert('Deleted Successfully'); 
-           window.location.reload();
-       }).catch((err) => {
-           alert(err.message);
-       })
-      }
-  */
-
 
       const onDelete = (_id) =>{
         const r = window.confirm ("Do you really want to Remove this Recode?"); 
@@ -111,11 +99,6 @@ function ViewRescuedDogs(props) {
       
         const image2 = "https://res.cloudinary.com/dorcq99nr/image/upload/v1665646657/DoggieCare/black_sgno4i.jpg"
         const success = `Thank you, ${perspectivePetParents} on taking home a puppy. We are committed to providing you with quality services.` 
-      //  const second = `Description about clinic` ;
-      //    const third  = `We are committed to providing you with quality services. Thank you`; 
-      //  const issuedate =`Report Issue Date: ${adoptDate}`;
-        const left = 20;
-        const top = 8;
         
         const lefts = 450;
         const tops = 200;
@@ -131,14 +114,8 @@ function ViewRescuedDogs(props) {
         doc.text(60, 400,owner);
         doc.text(60, 440,ownerContactNo);
         doc.text(60, 480,dogadoptDate);
-        
-       
         doc.addImage(image2, 'PNG' , lefts, tops, imgWidths, imgHeights);
-        
-      //  doc.text(60,500,issuedate);
         doc.text(60, 100, success);
-      //  doc.text(80, 120, second);
-      //  doc.text(80, 140, third);
         doc.save(`${dogName}'s ReportCard.pdf`);
      
     }

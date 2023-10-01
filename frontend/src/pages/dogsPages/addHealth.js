@@ -21,9 +21,6 @@ function AddHealthDetails() {
   useEffect(() => {
     axios.get(`http://localhost:8000/dog/${id}`)
       .then((res) => {
-        // (res.data);
-        console.log(res.data.dog);
-        // setdogID(res.data.dog.dogID);
         setWeight(res.data.dog.weight);
         setBloodGroup(res.data.dog.bloodGroup);
         setDisease(res.data.dog.disease);
@@ -90,19 +87,6 @@ function AddHealthDetails() {
 
       <div className="container col-6" onSubmit={sendUpdateDetails}>
         <form className="addMarks">
-          {/* <div className="form-group">
-            <label htmlFor="exampleInputCategory">Dog ID</label>
-            <input
-              type="text"
-              className="form-control"
-              id="exampleInputexpenseCategory1"
-
-              value={dogID}
-              onChange={(e) => {
-                setdogID(e.target.value);
-              }} disabled
-            />
-          </div> */}
           <div className="form-group">
             <label htmlFor="exampleInputCategory">Weight (kg)</label>
             <input
@@ -201,20 +185,6 @@ function AddHealthDetails() {
               }} 
             />
           </div>
-          
-          {/* <div className="form-group">
-          <label htmlFor="exampleInputCategory">Request Co supervisor</label>
-          <input
-            type="text"
-            className="form-control"
-            id="exampleInputexpenseCategory1"
-            placeholder="Enter Expense Category"
-            value = {topic}
-            onChange = {(e)=>{
-                settopic(e.target.value);
-            }}disabled
-          />
-        </div> */}
         
           <div className="form-group">
             <label for="exampleInputmonth">Surgeon</label>

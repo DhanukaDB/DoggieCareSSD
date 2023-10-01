@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 
 function UpdateHealth() {
   const [dog, setDog] = useState([]);
-//   const [search, setSearch] = useState("");
   const space2 = <Fragment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Fragment>
 
   let params = useParams();

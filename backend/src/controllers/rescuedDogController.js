@@ -69,48 +69,6 @@ exports.addNewRescuedDog= async (req, res) => {
     })   
   }
 
-
-
-
-
-/*
-//add Adoption details for system
-exports.addNewAdoption= async (req, res) => {
- 
-//constant variables for the attributes
-  const {dogName,perspectivePetParents,contactNo,buildingNo,street,city,adoptDate} = req.body;
-
-
- rescuedDogsDetails.findOne({dogName: dogName})
-   .then((savedDog) => {
-       if(savedDog) {
-           return res.status(422).json({error:"This Puppy already Adopt"})
-      }
-
-        const newAdoption = new rescuedDogsDetails({
-          dogName,
-          perspectivePetParents,
-          contactNo,
-          buildingNo,
-          street,
-          city,
-          adoptDate
-      })
-  
-      newAdoption.save().then(() => {
-           res.json("Successful")
-  
-      }).catch((err) => {
-          console.log(err);
-      })
-    
-  }).catch((err) =>{
-      console.log(err);
- })
-  }
-
-*/
-
   //view 
 exports.viewRescuedDogs= async (req, res) => { 
  
@@ -124,10 +82,7 @@ exports.viewRescuedDogs= async (req, res) => {
 
 }
 
-
-
-
-// //delete existing one
+//delete existing one
  exports.deleteRescuedDogsDetails = async (req, res) => {
     let  dogid = req.params.id;
    

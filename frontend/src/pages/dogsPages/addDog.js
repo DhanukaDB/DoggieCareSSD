@@ -41,8 +41,6 @@ export default function AddDog() {
       alert("error");
     })
   }
-//   const [startDate, setStartDate] = useState(new Date());
-
   return (
     <div style={{
       backgroundColor: '#010020',
