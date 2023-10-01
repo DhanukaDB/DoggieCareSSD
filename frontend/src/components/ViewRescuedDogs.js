@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Table, Button,Card, Form , Modal} from "react-bootstrap";
 import axios from "axios";
 import { FaPencilAlt, FaTrashAlt,FaLock } from "react-icons/fa";
-import { Fragment} from "react";
 import {Link} from 'react-router-dom'
 import jsPDF from 'jspdf'
 function ViewRescuedDogs(props) {
@@ -411,8 +410,8 @@ function ViewRescuedDogs(props) {
                             else if (RescuedDogs.dogName.toLowerCase().includes(search.toLowerCase())) {
                                 return RescuedDogs
                             }
-                        }).
-                            map((val,key) => {
+                        })
+                            .map((val,key) => {
 
                                 return (
                                     <tr key={val._id}>

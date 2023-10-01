@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { dogsList } from "../../services/dogService";
-import { Fragment } from "react";
 import axios from "axios";
 
 import { FaLock } from "react-icons/fa";
