@@ -410,8 +410,8 @@ function ViewRescuedDogs(props) {
                             else if (RescuedDogs.dogName.toLowerCase().includes(search.toLowerCase())) {
                                 return RescuedDogs
                             }
-                        }).
-                            map((val,key) => {
+                        })
+                            .map((val,key) => {
 
                                 return (
                                     <tr key={val._id}>
