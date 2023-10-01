@@ -161,22 +161,22 @@ function ViewRescuedDogs(props) {
         e.preventDefault();
        
        
-        var rescuerName1=null;
-        var rescuerContactNo1=null;
-        var registerdDate1=null;
-        var description1=null;
-        var dogName1= null;
-        var dogColour1= null;
-        var weight1 = null;
-        var age1 = null;
-        var gender1 =null;
-        var perspectivePetParents1 = null;
-        var contactNo1 = null;
-        var buildingNo1 =null;
-        var street1 = null;
-        var city1 = null;
-        var adoptDate1 = null;
-        var status1 = null;
+        const rescuerName1=null;
+        const rescuerContactNo1=null;
+        const registerdDate1=null;
+        const description1=null;
+        const dogName1= null;
+        const dogColour1= null;
+        const weight1 = null;
+        const age1 = null;
+        const gender1 =null;
+        const perspectivePetParents1 = null;
+        const contactNo1 = null;
+        const buildingNo1 =null;
+        const street1 = null;
+        const city1 = null;
+        const adoptDate1 = null;
+        const status1 = null;
   
     //set values
   
