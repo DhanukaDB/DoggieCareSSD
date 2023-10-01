@@ -92,15 +92,6 @@ function ViewRescuedDogs(props) {
 
 
     const createPDF = (_id,dogName,dogColour,weight,age,gender,perspectivePetParents,contactNo,adoptDate)=>{
-        console.log(_id);
-        console.log(dogName);
-        console.log(dogColour);
-        console.log(weight);
-        console.log(age);
-        console.log(gender);
-        console.log(perspectivePetParents);
-        console.log(contactNo);
-        console.log(adoptDate);
 
         const unit = "pt";
         const size = "A4";
@@ -161,22 +152,22 @@ function ViewRescuedDogs(props) {
         e.preventDefault();
        
        
-        const rescuerName1=null;
-        const rescuerContactNo1=null;
-        const registerdDate1=null;
-        const description1=null;
-        const dogName1= null;
-        const dogColour1= null;
-        const weight1 = null;
-        const age1 = null;
-        const gender1 =null;
-        const perspectivePetParents1 = null;
-        const contactNo1 = null;
-        const buildingNo1 =null;
-        const street1 = null;
-        const city1 = null;
-        const adoptDate1 = null;
-        const status1 = null;
+        let rescuerName1=null;
+        let rescuerContactNo1=null;
+        let registerdDate1=null;
+        let description1=null;
+        let dogName1= null;
+        let dogColour1= null;
+        let weight1 = null;
+        let age1 = null;
+        let gender1 =null;
+        let perspectivePetParents1 = null;
+        let contactNo1 = null;
+        let buildingNo1 =null;
+        let street1 = null;
+        let city1 = null;
+        let adoptDate1 = null;
+        let status1 = null;
   
     //set values
   
