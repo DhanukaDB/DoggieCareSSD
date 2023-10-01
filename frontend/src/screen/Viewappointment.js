@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Table, Button,Card } from "react-bootstrap";
 import axios from "axios";
 import { FaPencilAlt, FaTrashAlt,FaLock } from "react-icons/fa";
-import { Fragment} from "react";
 import { useNavigate } from "react-router-dom";
 
 function Viewappointment(props) {

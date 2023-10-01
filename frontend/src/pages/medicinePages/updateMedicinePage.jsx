@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Fragment } from "react";
 import { FaLock } from "react-icons/fa";
 import { getMedicineById, updateMedicine} from "../../services/medicineService";
 

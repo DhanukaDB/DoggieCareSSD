@@ -1,6 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 import { FaLock } from "react-icons/fa";
-import { Fragment } from "react";
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from "axios";
 import {Link} from 'react-router-dom'
@@ -14,7 +13,6 @@ export default function AddDog() {
   const [dob, setDob] = useState("");
   const [breed, setBreed] = useState("");
   const [sex, setSex] = useState("");
-  const [timeval, onChange] = useState('10:00');
 
   function sendData(e) {
 
