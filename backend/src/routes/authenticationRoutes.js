@@ -5,11 +5,7 @@ const router = express.Router();
 const {
   registerStudent,
   studentLogin,
-  // staffLogin,
   adminLogin,
-  forgotpassword,
-  resetpassword,
-  // registerStaff,
   registerAdmin,
   
 } = require("../controllers/authenticationController");

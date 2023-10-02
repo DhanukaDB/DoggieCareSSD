@@ -76,7 +76,6 @@ const StudentSignup = () => {
             <br />
             <br />
             <br />
-            {/* <Image src="#" fluid /> */}
           </Col>
           <Col>
             {" "}
