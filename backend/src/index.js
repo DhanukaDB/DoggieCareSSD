@@ -10,6 +10,23 @@ const userRouter = require("./routes/User-routes");
 const salesRouter = require("./routes/salesRoute.js")
 
 const app = express();
+app.disable('x-powered-by');
+
+const helmet = require('helmet');
+
+app.use((req, res, next) => {
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  next();
+});
+
+app.use((req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy-Report-Only',
+    "default-src 'self' cdn.example.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+  );
+  next();
+});
+
 
 app.use(cors());
 app.use(express.json());
