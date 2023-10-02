@@ -92,30 +92,6 @@ exports.viewRescuedDogs= async (req, res) => {
        res.status(500).json({ status: "Error with Deleting", error: error.message });
      })
    }
-   
-
-
-/*
-  //update 
-  exports.updateDog= async (req, res) => { 
-    //fetch id from url
-    let dogid = req.params.id;
-    const {dogName, ownerName,address,dob,breed,sex,image,weight,bloodGroup,disease,lastDate,nextDate,medicine,labTests,doctor} = req.body;
-  
-    const updateDog = {
-        dogName,ownerName,address,dob,breed,sex,image,weight,bloodGroup,disease,lastDate,nextDate,medicine,labTests,doctor
-    }
-  
-  
-    const update = await rescuedDogsDetails.findByIdAndUpdate(dogid, updateDog).then(() => {
-      res.status(200).send({status: "Result updated"})
-    }).catch((err) => {
-        console.log(err);
-        res.status(500).send({status: "Error with updating data", error: err.message});
-    })   
-  }
-
-*/
 
   //view one
   exports.viewOneRescuedDog = async (req, res) => {
