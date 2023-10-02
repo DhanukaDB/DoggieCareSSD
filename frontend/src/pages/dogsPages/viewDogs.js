@@ -118,10 +118,6 @@ function ViewAll() {
                     > <FaHeartbeat/>
                     </Link> </center>
                                         </td>
-                                        {/* <td>
-                                        <Link to={`/UpdateDog/${Dog._id}`}> <Button variant="outline-success"><FaPencilAlt/></Button></Link>
-
-                                        </td> */}
                                  
                                         <td>
                                             <Button variant="outline-danger" onClick={() => {if (window.confirm('Are you sure you want to delete this record?'))deleteDog(Dog._id)}}><FaTrashAlt/></Button>

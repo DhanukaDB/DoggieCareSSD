@@ -132,7 +132,6 @@ const StudentSignin = (props) => {
             <br />
             <br />
             <br />
-            {/* <Image src="#" fluid /> */}
           </Col>
         </Row>
       </Container>
