@@ -4,19 +4,27 @@ import { Col, Image } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axois from "axios";
 import { Form, Button, Container, Row } from "react-bootstrap";
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider, GoogleLogin,googleLogout} from '@react-oauth/google';
 
 const clientId = "386699752389-pr7a5ulrehqpjgu1021i2ltrvtcruh3r.apps.googleusercontent.com";
 
 const StudentSignin = (props) => {
 
   const onSuccess = async (res) => {
-    console.log("Login Success: currentUser:", res.profileObj);
+    console.log("Login Success: currentUser:", res.data.profileObj);
+    localStorage.setItem("authGoogle", res.data.profileObj);
   }
 
   const onFailure = (res) => {
     console.log("Login failed: res:", res);
   }
+
+  // Function to handle sign-out
+  const onLogoutSuccess = () => {
+    console.log('Logout Success');
+    localStorage.removeItem('authToken'); // Remove token from local storage
+    window.location = '/'; // Redirect to your desired page
+  };
 
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -108,6 +116,7 @@ const StudentSignin = (props) => {
                     <GoogleLogin
                       onSuccess={credentialResponse => {
                         console.log(credentialResponse);
+                        localStorage.setItem("authRes", credentialResponse);
                         window.location = "/"
                       }}
                       onError={() => {
