@@ -94,7 +94,7 @@ export const UpdateMedicinePage = () => {
             }}
             name="medicineName"
             value={medicineName}
-            onChange={(e) => {setMedicineName(e.target.value)}}
+            onChange={(e) => {setMedicineName(e.target.value.replace(/\{/g, '!').replace(/\}/g, '!').replace(/\</g, '.').replace(/\=/g, ' '))}}
           />
           <Form.Label>QTY:</Form.Label>
           <Form.Control
@@ -145,7 +145,7 @@ export const UpdateMedicinePage = () => {
             }}
             name="description"
             value={description}
-            onChange={(e) => {setDescription(e.target.value)}}
+            onChange={(e) => {setDescription(e.target.value.replace(/\{/g, '!').replace(/\}/g, '@').replace(/\</g, '.').replace(/\=/g, ' '))}}
           />
           <br />
           <Form.Control

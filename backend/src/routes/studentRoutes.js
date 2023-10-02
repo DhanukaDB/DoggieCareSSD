@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // import  protected-routes middlewares
-const {protectedStudent,protectedStudentAndStaff} = require("../middlewares/authMiddlewares");
+const {protectedStudent} = require("../middlewares/authMiddlewares");
 
 
 //import controllers
