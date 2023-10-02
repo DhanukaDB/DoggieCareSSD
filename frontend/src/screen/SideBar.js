@@ -3,10 +3,20 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { FaCreativeCommonsNd } from "react-icons/fa";
 import {useNavigate} from 'react-router-dom'
+import { GoogleOAuthProvider, GoogleLogin,googleLogout} from '@react-oauth/google';
 
 function SideBar() {
   const navigate = useNavigate();
+  
 
+  const logout = () => {
+    if (localStorage.getItem("authToken") && localStorage.getItem("userRole")) {
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("userRole");
+      localStorage.removeItem("authRes");
+      googleLogout();
+    }
+  };
  
   const [show, setShow] = useState(false);
 
@@ -76,14 +86,47 @@ function SideBar() {
       <Button variant="secondary" size="lg" onClick={strayDogs}>
         STRAY PUPPIES
       </Button>
-      <br /><br />
-      <Button variant="secondary" size="lg" onClick={signin}>
-        Sign In
-     </Button>
+      <br /><br /><br /><br />
+      
+      {!localStorage.getItem("authToken") && (
+                  <Button
+                    href="/studentsignup"
+                    sx={{ marginLeft: "10%" }}
+                    variant="secondary"
+                  >
+                    Signup
+                  </Button>
+                )}
 
-      <Button variant="secondary" size="lg" onClick={signup}>
-        Sign Out
-      </Button>
+      {!localStorage.getItem("authToken") && (
+                  <Button
+                    href="/studentsignin"
+                    sx={{ marginLeft: "2%" }}
+                    variant="secondary"
+                  >
+                    Sign-in
+                  </Button>
+                )}
+      {localStorage.getItem("authToken") && (
+                  <Button
+                    style={{ marginRight: "2%" }}
+                    onClick={() => {
+                      logout();
+                    }}
+                  >Sign Out</Button>
+                )}
+
+{/* {localStorage.getItem("authRes") && (
+                  <Button
+                    style={{ marginRight: "2%" }}
+                    onClick={() => {
+                      logout();
+                    }}
+                  >GG Out</Button>
+                )} */}
+
+                
+                
     </div>
     
     <br/><br/><br/><br/>
