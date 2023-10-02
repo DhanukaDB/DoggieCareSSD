@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Table, Button,Card, Form , Modal} from "react-bootstrap";
 import axios from "axios";
 import { FaPencilAlt, FaTrashAlt,FaLock } from "react-icons/fa";
-import { Fragment} from "react";
 import {Link} from 'react-router-dom'
 import jsPDF from 'jspdf'
 function ViewRescuedDogs(props) {
@@ -46,18 +45,6 @@ function ViewRescuedDogs(props) {
         getRescuedDogs();
     }, [])
 
-    /*//delete funtion
-    function onDelete(_id){
-        console.log(_id);
-        axios.delete("http://localhost:5000/createRescuedDog/"+_id ).then((res) =>{
-           alert('Deleted Successfully'); 
-           window.location.reload();
-       }).catch((err) => {
-           alert(err.message);
-       })
-      }
-  */
-
 
       const onDelete = (_id) =>{
         const r = window.confirm ("Do you really want to Remove this Recode?"); 
@@ -93,15 +80,6 @@ function ViewRescuedDogs(props) {
 
 
     const createPDF = (_id,dogName,dogColour,weight,age,gender,perspectivePetParents,contactNo,adoptDate)=>{
-        console.log(_id);
-        console.log(dogName);
-        console.log(dogColour);
-        console.log(weight);
-        console.log(age);
-        console.log(gender);
-        console.log(perspectivePetParents);
-        console.log(contactNo);
-        console.log(adoptDate);
 
         const unit = "pt";
         const size = "A4";
@@ -121,11 +99,6 @@ function ViewRescuedDogs(props) {
       
         const image2 = "https://res.cloudinary.com/dorcq99nr/image/upload/v1665646657/DoggieCare/black_sgno4i.jpg"
         const success = `Thank you, ${perspectivePetParents} on taking home a puppy. We are committed to providing you with quality services.` 
-      //  const second = `Description about clinic` ;
-      //    const third  = `We are committed to providing you with quality services. Thank you`; 
-      //  const issuedate =`Report Issue Date: ${adoptDate}`;
-        const left = 20;
-        const top = 8;
         
         const lefts = 450;
         const tops = 200;
@@ -141,14 +114,8 @@ function ViewRescuedDogs(props) {
         doc.text(60, 400,owner);
         doc.text(60, 440,ownerContactNo);
         doc.text(60, 480,dogadoptDate);
-        
-       
         doc.addImage(image2, 'PNG' , lefts, tops, imgWidths, imgHeights);
-        
-      //  doc.text(60,500,issuedate);
         doc.text(60, 100, success);
-      //  doc.text(80, 120, second);
-      //  doc.text(80, 140, third);
         doc.save(`${dogName}'s ReportCard.pdf`);
      
     }
@@ -162,22 +129,22 @@ function ViewRescuedDogs(props) {
         e.preventDefault();
        
        
-        var rescuerName1=null;
-        var rescuerContactNo1=null;
-        var registerdDate1=null;
-        var description1=null;
-        var dogName1= null;
-        var dogColour1= null;
-        var weight1 = null;
-        var age1 = null;
-        var gender1 =null;
-        var perspectivePetParents1 = null;
-        var contactNo1 = null;
-        var buildingNo1 =null;
-        var street1 = null;
-        var city1 = null;
-        var adoptDate1 = null;
-        var status1 = null;
+        let rescuerName1=null;
+        let rescuerContactNo1=null;
+        let registerdDate1=null;
+        let description1=null;
+        let dogName1= null;
+        let dogColour1= null;
+        let weight1 = null;
+        let age1 = null;
+        let gender1 =null;
+        let perspectivePetParents1 = null;
+        let contactNo1 = null;
+        let buildingNo1 =null;
+        let street1 = null;
+        let city1 = null;
+        let adoptDate1 = null;
+        let status1 = null;
   
     //set values
   
@@ -411,8 +378,8 @@ function ViewRescuedDogs(props) {
                             else if (RescuedDogs.dogName.toLowerCase().includes(search.toLowerCase())) {
                                 return RescuedDogs
                             }
-                        }).
-                            map((val,key) => {
+                        })
+                            .map((val,key) => {
 
                                 return (
                                     <tr key={val._id}>

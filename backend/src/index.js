@@ -9,6 +9,7 @@ const appointmentRouter = require("./routes/Appointment-routes.js");
 const userRouter = require("./routes/User-routes");
 const salesRouter = require("./routes/salesRoute.js")
 
+
 const app = express();
 app.disable('x-powered-by');
 
@@ -27,13 +28,12 @@ app.use((req, res, next) => {
   next();
 });
 
-
-app.use(cors());
+app.use(cors({ exposedHeaders: ['x-skip', 'x-limit', 'x-total'] }));
 app.use(express.json());
 
 app.use('/medicine', medicineRouter)
 app.use('/dog' , dogRouter)
-app.use("/createRescuedDog",rescuedDogRouter); //create  rescuedDogRoute 
+app.use("/createRescuedDog",rescuedDogRouter);
 app.use("/appointment",appointmentRouter);
 app.use("/user",userRouter);
 app.use("/sales", salesRouter)

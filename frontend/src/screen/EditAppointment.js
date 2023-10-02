@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from "axios";
-import { Fragment } from "react";
 import { FaLock } from "react-icons/fa";
 import { useParams } from 'react-router-dom';
 import jsPDF from 'jspdf';
@@ -23,9 +22,8 @@ function EditAppointment(props) {
   const [date, setdate] = useState(" ");
   const [time, settime] = useState(" ");
   const [reason, setreason] = useState(" ");
-  const [timeval, onChange] = useState('10:00');
-  useEffect(() => {
 
+  useEffect(() => {
 
     //get funtion
     function getappointment() {

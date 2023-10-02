@@ -1,6 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 import { FaLock } from "react-icons/fa";
-import { Fragment } from "react";
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from "axios";
 
@@ -16,7 +15,6 @@ export default function DogRegistration() {
   const [weight, setWeight]= useState(" ");
   const [age, setAge] = useState(" ");
   const [gender, setGender] = useState(" ");
- // const [timeval, onChange] = useState('10:00');
 
   function sendData(e) {
 

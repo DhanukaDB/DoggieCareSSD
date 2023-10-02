@@ -1,6 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 import { FaLock } from "react-icons/fa";
-import { Fragment } from "react";
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from "axios";
 ;
@@ -15,7 +14,6 @@ export default function Addappointment() {
   const [date, setdate] = useState(" ");
   const [time, settime] = useState(" ");
   const [reason, setreason] = useState(" ");
-  // const [timeval, onChange] = useState('10:00');
 
   function sendData(e) {
 

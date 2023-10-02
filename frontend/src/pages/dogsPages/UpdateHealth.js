@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from "axios";
-import { Fragment } from "react";
 import { FaLock } from "react-icons/fa";
 import { useParams } from 'react-router-dom';
 
 function UpdateHealth() {
   const [dog, setDog] = useState([]);
-//   const [search, setSearch] = useState("");
   const space2 = <Fragment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Fragment>
 
   let params = useParams();

@@ -1,6 +1,5 @@
-import React, { useState , useEffect } from "react"
+import React, { useState , useEffect, Fragment } from "react"
 import { FaLock } from "react-icons/fa";
-import { Fragment } from "react";
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
 import axios from "axios";
 import { useParams } from 'react-router-dom';
@@ -17,47 +16,11 @@ export default function DogRegistration() {
   const [adoption, setadoption] = useState([]);
   let params = useParams();
 
-
-  /*function sendData(e) {
-
-    e.preventDefault();
-
-    const newAdoption = {
-        dogName,
-        perspectivePetParents,
-        contactNo,
-        buildingNo,
-        street,
-        city,
-        adoptDate
-    }
-
-    axios.post("http://localhost:5000/createRescuedDog/addNewAdoption", newAdoption).then(() => {
-      ("New Puppy Adoption added")
-      setDogName('');
-      setPerspectivePetParents('');
-      setContactNo('');
-      setBuildingNo('');
-      setStreet('');
-      setCity('');
-      setAdoptDate('');
-      
-      
-      alert("New Puppy Adoption added");
-      window.location = `/viewrescueddog`;
-
-    }).catch((err) => {
-      alert("error");
-    })
-  }*/
-
   useEffect(() => {
 
 
     //get funtion
-    function getadoption() {
-
-      //console.log(_id);
+    function getadoption() {     
 
       axios.get(`http://localhost:8000/createRescuedDog/get/${params.id}`).then((res) => {
 
@@ -68,7 +31,6 @@ export default function DogRegistration() {
         setContactNo(res.data.dog.contactNo);
         setBuildingNo(res.data.dog.buildingNo);
         setStreet(res.data.dog.street);
-       // setCity(res.data.dog.city);
         setAdoptDate(res.data.dog.adoptDate);
         console.log(res.data.dog.dogName);
         console.log(res.data);
@@ -109,7 +71,6 @@ export default function DogRegistration() {
       setContactNo('');
       setBuildingNo('');
       setStreet('');
-     // setCity('');
       setAdoptDate('');
      
 

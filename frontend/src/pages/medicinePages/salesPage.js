@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "./medicine.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Fragment } from "react";
 import { FaLock } from "react-icons/fa";
 import { createSales } from "../../services/salesService";
 

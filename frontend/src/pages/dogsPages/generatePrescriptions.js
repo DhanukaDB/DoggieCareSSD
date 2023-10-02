@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Table, Button,Card } from "react-bootstrap";
 import axios from "axios";
-import { FaFilePdf,FaLock,FaPencilAlt } from "react-icons/fa";
-import { Fragment } from "react";
+import { FaFilePdf,FaLock } from "react-icons/fa";
 import jsPDF from 'jspdf'
-import {Link} from 'react-router-dom'
 
 function GeneratePrescriptions(props) {
     const [prescriptions, setPrescriptions] = useState([]);
     const [search, setSearch] = useState("");
-    // const [state, setState] = useState("adopted");
+
     const space2 = <Fragment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Fragment>
 
     useEffect(() => {
@@ -27,32 +25,13 @@ function GeneratePrescriptions(props) {
 
    
 
-    const createPDF = (_id,dogID,dogName,sex,dob,weight,bloodGroup,disease,lastDate,nextDate,medicine,labTests,doctor)=>{
-        console.log(_id);
-        console.log(dogID);
-        console.log(dogName);
-        console.log(sex);
-        console.log(dob);
-        console.log(weight);
-        console.log(bloodGroup);
-        console.log(disease);
-        console.log(lastDate);
-        console.log(nextDate);
-        console.log(medicine);
-        console.log(labTests);
-        console.log(doctor);
-
-
-
+    const createPDF = (_id,dogID,dogName,weight,bloodGroup,disease,lastDate,nextDate,medicine,labTests,doctor)=>{
         const unit = "pt";
         const size = "A4";
         const orientation = "landscape";
-        // const marginLeft = 40;
         const doc = new jsPDF(orientation, unit, size);
         const title = `**** DOGGIE CARE HEALTH REPORT ****    (Dog ID : ${dogID})`;
         const name = `Dog's Name: ${dogName}`;
-        // const gender = `Gender: ${sex}`;
-        // const birth = `Date Of Birth: ${dob}`;
         const kg = `Weight: ${weight} kg`;
         const group = `Blood Group: ${bloodGroup}`;
         const diseas = `Disease :${disease}`;
@@ -65,11 +44,6 @@ function GeneratePrescriptions(props) {
       
         const image2 = "https://th.bing.com/th/id/R.709304af5fc11b7bb0c2a3a104485ffd?rik=8LN%2ftXvFwzq2LA&riu=http%3a%2f%2fwww.petdialog.co.uk%2fDog%2f_Images%2fhealth-dog.jpg&ehk=UWG3xTlqqHjhsHWhTi5OTGwpvCXDAL5pQlEDp4lp3MU%3d&risl=&pid=ImgRaw&r=0"
         const success = `Welcome to Doggy Care Veterinary Services !` 
-      //  const second = `Description about clinic` ;
-      //    const third  = `We are committed to providing you with quality services. Thank you`; 
-      //  const issuedate =`Report Issue Date: ${adoptDate}`;
-        // const left = 20;
-        // const top = 8;
         
         const lefts = 450;
         const tops = 200;
@@ -86,16 +60,8 @@ function GeneratePrescriptions(props) {
         doc.text(60, 440,med);
         doc.text(60, 480,tests);
         doc.text(60, 520,vet);
-        // doc.text(60, 480,vet);
-        // doc.text(60, 480,vet);
-
-       
         doc.addImage(image2, 'PNG' , lefts, tops, imgWidths, imgHeights);
-        
-      //  doc.text(60,500,issuedate);
         doc.text(60, 100,success);
-      //  doc.text(80, 120, second);
-      //  doc.text(80, 140, third);
         doc.save(`${dogID}'s Prescription.pdf`);
      
     }

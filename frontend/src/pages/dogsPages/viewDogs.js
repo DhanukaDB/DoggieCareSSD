@@ -1,26 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Table, Button,Card } from "react-bootstrap";
 import axios from "axios";
 import {  FaTrashAlt,FaLock,FaHeartbeat} from "react-icons/fa";
 import {Link} from 'react-router-dom'
-import { Fragment } from "react";
 
 function ViewAll() {
     const [dog, setDog] = useState([]);
     const [search, setSearch] = useState("");
-    // const [loading, setLoading] = useState(false);
-    // const [posts, setPosts] = useState([]);
     const space2 = <Fragment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Fragment>
 
-    // useEffect(() => {
-    //     const loadPosts = async () => {
-    //       setLoading(true);
-    //       const response = await axios.get(`http://localhost:8000/dog/`);
-    //       setPosts(response.data);
-    //       setLoading(false);
-    //     };
-    //     loadPosts();
-    //   }, []);
     useEffect(() => {
 
         //get funtion
