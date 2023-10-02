@@ -92,7 +92,7 @@ const StudentSignup = () => {
                     <br />
                   </Col>
 
-                  <h1 className="login">Student Sign Up</h1>
+                  <h1 className="login">Sign Up</h1>
                   <Form.Group className="mb-3" controlId="formBasicUsername">
                     <Form.Control
                       type="text"
