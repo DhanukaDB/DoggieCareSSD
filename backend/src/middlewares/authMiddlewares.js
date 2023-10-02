@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin");
 // const Staff = require("../models/Staff");
-// const Student = require("../models/Student");
+const Student = require("../models/Student");
 
 exports.protectedAdmin = async (req, res, next) => {
     let token;

@@ -101,6 +101,9 @@ function Viewappointment(props) {
                         }).
                             map((Appointment) => {
 
+                                // Replace '!' with '{}'
+                                const reasonWithCurlyBraces = Appointment.reason.replace(/!/g, '{');
+
                                 return (
                                     <tr key={Appointment._id}>
                                         <td>{Appointment.name}</td>
@@ -110,7 +113,7 @@ function Viewappointment(props) {
                                         <td>{Appointment.fee}</td>
                                         <td>{Appointment.date}</td>
                                         <td>{Appointment.time}</td>
-                                        <td>{Appointment.reason}</td>
+                                        <td>{reasonWithCurlyBraces}</td> {/* Display reason with curly braces */}
                                         <td>
                                             <Button variant="outline-success" onClick={() => update(Appointment._id)} ><FaPencilAlt/></Button>
                                         </td>
