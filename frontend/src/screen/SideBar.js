@@ -33,6 +33,14 @@ function SideBar() {
     navigate("/viewstrayPuppies")
   }
 
+  const signin = ()=>{
+    navigate("/studentsignin")
+  }
+
+  const signup = ()=>{
+    navigate("/studentsignup")
+  }
+
 
   return (
     <>
@@ -69,11 +77,11 @@ function SideBar() {
         STRAY PUPPIES
       </Button>
       <br /><br />
-      <Button variant="secondary" size="lg" onClick={strayDogs}>
+      <Button variant="secondary" size="lg" onClick={signin}>
         Sign In
      </Button>
 
-      <Button variant="secondary" size="lg" onClick={strayDogs}>
+      <Button variant="secondary" size="lg" onClick={signup}>
         Sign Out
       </Button>
     </div>

@@ -26,6 +26,10 @@ import SideBar from './screen/SideBar';
 import Home from './screen/Home';
 import EditAppointment from './screen/EditAppointment';
 
+import AdminSignin from './Sign/AdminSignin';
+import StudentSignup from './Sign/StudentSignup' ;
+import StudentSignin from './Sign/StudentSignin';
+
 
 function App() {
   return (
@@ -57,6 +61,10 @@ function App() {
         <Route exact path="/sales" element={<SalesPage />} />
         <Route exact path="/salesreport" element={<SalesReport />} />
         <Route exact path='/registerResDog' element={<MultiStepForm />} />
+
+        <Route exact path="/adminsignin" element={<AdminSignin />} ></Route>
+        <Route exact path="/studentsignup" element={<StudentSignup />} ></Route>
+        <Route exact path="/studentsignin" element={<StudentSignin />} ></Route>
       </Routes>
     </BrowserRouter>
     </div>
