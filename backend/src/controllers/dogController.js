@@ -37,11 +37,11 @@ exports.addNewDog= async (req, res) => {
              res.json("Dog Added")
     
         }).catch((err) => {
-            console.log(err);
+          
         })
       
     }).catch((err) =>{
-        console.log(err);
+        
     })
     }
 
@@ -70,7 +70,7 @@ exports.deleteDog = async (req, res) => {
     const update = await dogsDetails.findByIdAndUpdate(id, updateDog).then(() => {
       res.status(200).send({status: "Result updated"})
     }).catch((err) => {
-        console.log(err);
+       
         res.status(500).send({status: "Error with updating data", error: err.message});
     })   
   }
@@ -83,7 +83,7 @@ exports.viewDogs= async (req, res) => {
       res.json(dogs)
   
   }).catch((err) => {
-      console.log(err)
+     
   })
   
   }
@@ -94,7 +94,7 @@ exports.viewDogs= async (req, res) => {
     const dog = await dogsDetails.findById(did).then((dog) => {
         res.status(200).send({status: "  fetched", did})
     }).catch(() => {
-         console.log(err.message);
+        
          res.status(500).send({status:"Error with get " , error: err.message})
     })
   }

@@ -4,14 +4,14 @@ const jwt = require("jsonwebtoken");
 const Schema = mongoose.Schema;
 
 
-const studentSchema = new Schema({
+const suserSchema = new Schema({
 
   role: {
     type: String,
-    default:"student",
+    default:"suser",
 
   },
-  studentID : {
+  suserID : {
    type : String,
    unique: true,
    require: true
@@ -44,7 +44,7 @@ const studentSchema = new Schema({
 })
 
 //pre save runs before save data on Mongodb
-studentSchema.pre("save", async function (next) {
+suserSchema.pre("save", async function (next) {
       //checking whether the password isModified
       if (!this.isModified("password")) {
         next();
@@ -58,16 +58,16 @@ studentSchema.pre("save", async function (next) {
     });
 
 //to compare hashed passwords in login scenarios
-studentSchema.methods.matchPasswords = async function (password) {
+suserSchema.methods.matchPasswords = async function (password) {
       return await bcrypt.compare(password, this.password); //password refers to user providing one and this.password refers to one that get from db
     };
 
-studentSchema.methods.getSignedToken = function () {
+suserSchema.methods.getSignedToken = function () {
       return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRE,
       });
     };
 
 
-const Student = mongoose.model("Student", studentSchema);
-module.exports = Student;
+const Suser = mongoose.model("Suser", suserSchema);
+module.exports = Suser;

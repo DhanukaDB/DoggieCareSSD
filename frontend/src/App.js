@@ -27,8 +27,8 @@ import Home from './screen/Home';
 import EditAppointment from './screen/EditAppointment';
 
 import AdminSignin from './Sign/AdminSignin';
-import StudentSignup from './Sign/StudentSignup' ;
-import StudentSignin from './Sign/StudentSignin';
+import SuserSignup from './Sign/SuserSignup' ;
+import SuserSignin from './Sign/SuserSignin';
 
 
 function App() {
@@ -63,8 +63,8 @@ function App() {
         <Route exact path='/registerResDog' element={<MultiStepForm />} />
 
         <Route exact path="/adminsignin" element={<AdminSignin />} ></Route>
-        <Route exact path="/studentsignup" element={<StudentSignup />} ></Route>
-        <Route exact path="/studentsignin" element={<StudentSignin />} ></Route>
+        <Route exact path="/susersignup" element={<SuserSignup />} ></Route>
+        <Route exact path="/susersignin" element={<SuserSignin />} ></Route>
       </Routes>
     </BrowserRouter>
     </div>

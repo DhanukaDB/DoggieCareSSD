@@ -37,7 +37,7 @@ module.exports.createMedicine = async (req, res, _next) => {
       .then((medicine) => {
           res.status(200).send({status: "Medicine fetched", medicine});
       }).catch((err) => {
-          console.log(err.message);
+         
           res.status(500).send({status: "Error with get medicine",error: err.message});
       })
   }
@@ -72,7 +72,7 @@ module.exports.createMedicine = async (req, res, _next) => {
       .then(() => {
       res.status(200).send({status: "Medicine update"})
    }).catch((err) => {
-      console.log(err);
+     
       res.status(500).send({status: "Error with updating data"});
    })
   };

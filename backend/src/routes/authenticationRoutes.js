@@ -3,8 +3,8 @@ const router = express.Router();
 
 // import controllers
 const {
-  registerStudent,
-  studentLogin,
+  registerSuser,
+  suserLogin,
   adminLogin,
   registerAdmin,
   
@@ -12,12 +12,12 @@ const {
  
 //register Routes
 
-router.route("/registerstudent").post(registerStudent);
+router.route("/registersuser").post(registerSuser);
 // router.route("/registerstaff").post(registerStaff);
 router.route("/registeradmin").post(registerAdmin);
 
 //login routes
-router.route("/studentlogin").post(studentLogin);
+router.route("/suserlogin").post(suserLogin);
 // router.route("/stafflogin").post(staffLogin);
 router.route("/adminlogin").post(adminLogin);
 
