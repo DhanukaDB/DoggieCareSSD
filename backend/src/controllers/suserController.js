@@ -1,9 +1,9 @@
-const Student = require("../models/Student");
+const Suser = require("../models/Suser");
 
 const mongoose = require("mongoose");
 
-//fetch student profile
-exports.getStudentProfile = async (req,res) =>{
+//fetch suser profile
+exports.getSuserProfile = async (req,res) =>{
     try{
         if(!req.user) {
             res.status(422).json({
@@ -13,19 +13,19 @@ exports.getStudentProfile = async (req,res) =>{
             });
         }else {
             res.status(200).send({
-                student:req.user,
+                suser:req.user,
             });
         }
     }catch(error) {
         res.status(500).json({
             success:false,
-            desc:"Error in getStudentProfile controller - "+error,
+            desc:"Error in getSuserProfile controller - "+error,
         });
     }
 };
 
 //update cutomer profile
-exports.updateStudentProfile = async (req,res) => {
+exports.updateSuserProfile = async (req,res) => {
     const {name,email,contactNumber,password} = req.body;
 
     try{
@@ -36,7 +36,7 @@ exports.updateStudentProfile = async (req,res) => {
             password
         };
 
-        const updatedstudent = await Student.findByIdAndUpdate(
+        const updatedsuser = await Suser.findByIdAndUpdate(
             req.user.id,
             newData,
             {
@@ -47,39 +47,39 @@ exports.updateStudentProfile = async (req,res) => {
         );
         res.status(200).send({
             success:true,
-            desc: "student update successfully",
-            updatedstudent,
+            desc: "suser update successfully",
+            updatedsuser,
         });
     }catch(error){
         res.status(500).json({
             success:false,
-            desc:"Error in updating student profile controller " +error,
+            desc:"Error in updating suser profile controller " +error,
         });
     }
 };
 
-//delete student profile
-exports.deleteStudentProfile = async(req,res) =>{
+//delete suser profile
+exports.deleteSuserProfile = async(req,res) =>{
 
     if (!mongoose.Types.ObjectId.isValid(req.user._id))
-        return res.status(404).send(`No student with id: ${req.user._id}`);
+        return res.status(404).send(`No suser with id: ${req.user._id}`);
 
     try {
-        await Student.findByIdAndRemove(req.user._id);
-        const deletedStudent = await DeletedStudentModel.create({
-            studentID:req.user._id
+        await Suser.findByIdAndRemove(req.user._id);
+        const deletedSuser = await DeletedSuserModel.create({
+            suserID:req.user._id
         });
        
         res.status(200).send({
             success: true,
-            desc: "Student deleted successfully",
-            deletedStudent,
+            desc: "Suser deleted successfully",
+            deletedSuser,
 
         });
     } catch (error) {
         res.status(500).json({
             success: false,
-            desc: "Error in delete Student Profile controller-" + error,
+            desc: "Error in delete Suser Profile controller-" + error,
         });
     }
 
@@ -89,11 +89,11 @@ exports.deleteStudentProfile = async(req,res) =>{
 
 exports.allProfiles =  (req,res) =>{
     
-    Student.find().then((Students) => {
-        res.json(Students)
+    Suser.find().then((Susers) => {
+        res.json(Susers)
 
     }).catch((err) => {
-        console.log(err)
+      
     })
     
 };

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin");
 // const Staff = require("../models/Staff");
-const Student = require("../models/Student");
+const Suser = require("../models/Suser");
 
 exports.protectedAdmin = async (req, res, next) => {
     let token;
@@ -20,12 +20,12 @@ exports.protectedAdmin = async (req, res, next) => {
     }
   };
 
-exports.protectedStudent = async (req, res, next) => {
+exports.protectedSuser = async (req, res, next) => {
     let token;
     token = tokenValidate(req, res);
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      const user = await Student.findById(decoded.id);
+      const user = await Suser.findById(decoded.id);
       if (!user) {
         noUserResponse(res);
       } else {

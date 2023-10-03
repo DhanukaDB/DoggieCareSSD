@@ -1,22 +1,22 @@
 const Admin = require("../models/Admin");
-const Student = require("../models/Student");
+const Suser = require("../models/Suser");
 
-exports.registerStudent = async (req, res, next) => {
-  const { studentID, name, email, contactNumber, password } = req.body;
+exports.registerSuser = async (req, res, next) => {
+  const { suserID, name, email, contactNumber, password } = req.body;
 
   try {
-    const student = await Student.create({
-      studentID,
+    const suser = await Suser.create({
+      suserID,
       name,
       email,
       contactNumber,
       password,
     });
-    sendToken(student, 200, res);
+    sendToken(suser, 200, res);
   } catch (error) {
     res.status(500).json({
       error,
-      desc: "Error occurred in registerstudent" + error,
+      desc: "Error occurred in registersuser" + error,
     });
   }
 };
@@ -35,12 +35,12 @@ exports.registerAdmin = async (req, res, next) => {
   } catch (error) {
     res.status(500).json({
       error,
-      desc: "Error occurred in registerstudent" + error,
+      desc: "Error occurred in registersuser" + error,
     });
   }
 };
 
-exports.studentLogin = async (req, res, next) => {
+exports.suserLogin = async (req, res, next) => {
   const { email, password, role } = req.body;
 
   if (!email || !password) {
@@ -51,16 +51,16 @@ exports.studentLogin = async (req, res, next) => {
   }
 
   try {
-    const student = await Student.findOne({ email: email }).select("+password");
+    const suser = await Suser.findOne({ email: email }).select("+password");
 
-    if (!student) {
+    if (!suser) {
       res.status(404).json({
         success: false,
         error: "invalid credentials",
       });
     }
 
-    const isMatch = await student.matchPasswords(password);
+    const isMatch = await suser.matchPasswords(password);
 
     if (!isMatch) {
       res.status(401).json({
@@ -68,7 +68,7 @@ exports.studentLogin = async (req, res, next) => {
         error: "Invalid credentials - Please check again",
       });
     } else {
-      sendToken(student, 200, res);
+      sendToken(suser, 200, res);
     }
   } catch (error) {
     res.status(500).json({
