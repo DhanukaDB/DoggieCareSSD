@@ -136,6 +136,7 @@ export default function DogRegistration() {
                           </Form.Label>
                           <Form.Control
                             type="text"
+                            maxLength={10}
                             onChange={(e) =>
                               setRescuerContactNo(e.target.value)
                             }
@@ -171,7 +172,18 @@ export default function DogRegistration() {
                             type="text"
                             as="textarea"
                             rows={2}
-                            onChange={(e) => setDescription(e.target.value)}
+                            onChange={(e) => setDescription(e.target.value.replace(/[<>{}=]/g, (match) => {
+                              // Replace each match with the corresponding replacement character
+                              const replacements = {
+                                '<': ',',
+                                '>': '.',
+                                '{': ';',
+                                '}': "'",
+                                '=': '!',
+                              };
+                              return replacements[match];
+                            })
+                        )}
                             placeholder=" Enter Reason"
                             style={{
                               backgroundColor: "#010020",
@@ -222,6 +234,7 @@ export default function DogRegistration() {
                           </Form.Label>
                           <Form.Control
                             type="Number"
+                            max={100}
                             onChange={(e) => setWeight(e.target.value)}
                             placeholder=" Enter Weight"
                             style={{

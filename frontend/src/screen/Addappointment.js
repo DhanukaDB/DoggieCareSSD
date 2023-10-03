@@ -89,7 +89,7 @@ export default function Addappointment() {
                           <Form.Label style={{ color: 'white' }}>Mobile Number: </Form.Label>
                           <Form.Control type="text"
                             onChange={(e) => setContact(e.target.value)}
-
+                            maxLength={10}
                             placeholder=" Enter Mobile Number" style={{
                               backgroundColor: '#010020',
                               color: '#F62681'
@@ -100,7 +100,7 @@ export default function Addappointment() {
                           <Form.Label style={{ color: 'white' }}>NIC: </Form.Label>
                           <Form.Control type="text"
                             onChange={(e) => setNIC(e.target.value)}
-
+                            maxLength={15}
                             placeholder=" Enter NIC" style={{
                               backgroundColor: '#010020',
                               color: '#F62681'
@@ -127,7 +127,7 @@ export default function Addappointment() {
                       <div>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                           <Form.Label style={{ color: 'white' }}>Fee: </Form.Label>
-                          <Form.Control type="text"
+                          <Form.Control type="number"
                             onChange={(e) => setfee(e.target.value)}
 
                             placeholder=" Enter Fee" style={{

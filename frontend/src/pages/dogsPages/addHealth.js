@@ -92,7 +92,8 @@ function AddHealthDetails() {
             <input
               type="number"
               required ={true}
-              placeholder="40"
+              max={100}
+              placeholder=""
               className="form-control"
               id="exampleInputexpenseCategory1"
 
@@ -129,7 +130,18 @@ function AddHealthDetails() {
               id="exampleInputexpenseCategory1"
               value={disease}
               onChange={(e) => {
-                setDisease(e.target.value);
+                setDisease(e.target.value.replace(/[<>{}=]/g, (match) => {
+                  // Replace each match with the corresponding replacement character
+                  const replacements = {
+                    '<': ',',
+                    '>': '.',
+                    '{': ';',
+                    '}': "'",
+                    '=': '!',
+                  };
+                  return replacements[match];
+                })
+            );
               }} 
             />
           </div>
