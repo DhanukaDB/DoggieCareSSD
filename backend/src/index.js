@@ -55,10 +55,9 @@ const initialize = async () => {
 const startServer = async () => {
   await initialize();
 
-  // TODO: Add correct paths to privateKey and certificate
   // Read the SSL certificate and private key files
-  const privateKey = fs.readFileSync('path/to/private-key.pem', 'utf8');
-  const certificate = fs.readFileSync('path/to/certificate.pem', 'utf8');
+  const privateKey = fs.readFileSync('./cert/key.pem', 'utf8');
+  const certificate = fs.readFileSync('./cert/cert.pem', 'utf8');
   const credentials = { key: privateKey, cert: certificate };
 
   // Create an HTTPS server
