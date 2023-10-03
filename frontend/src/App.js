@@ -38,8 +38,8 @@ function App() {
           {/* Publicly visible routes */}
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/adminsignin" element={<AdminSignin />} />
-          <Route exact path="/usersignup" element={<SuserSignup />} />
-          <Route exact path="/usersignin" element={<SuserSignin />} />
+          <Route exact path="/susersignup" element={<SuserSignup />} />
+          <Route exact path="/susersignin" element={<SuserSignin />} />
           <Route exact path="/" element={<Home />} />
 
           {/* Protected routes */}
@@ -102,7 +102,7 @@ function App() {
           )}
 
           {/* Redirect to login for unauthorized users */}
-          {!token && <Route path="*" element={<Navigate to="/usersignin" />} />}
+          {!token && <Route path="*" element={<Navigate to="/susersignin" />} />}
         </Routes>
       </BrowserRouter>
     </div>
