@@ -3,7 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { FaCreativeCommonsNd } from "react-icons/fa";
 import {useNavigate} from 'react-router-dom'
-import { GoogleOAuthProvider, GoogleLogin,googleLogout} from '@react-oauth/google';
+
+// import { GoogleOAuthProvider, GoogleLogin,googleLogout} from '@react-oauth/google';
 
 function SideBar() {
   const navigate = useNavigate();
@@ -14,7 +15,8 @@ function SideBar() {
       localStorage.removeItem("authToken");
       localStorage.removeItem("userRole");
       localStorage.removeItem("authRes");
-      googleLogout();
+      navigate('/susersignin')
+      // googleLogout();
     }
   };
  
