@@ -1,14 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const  mongoose = require('mongoose');
+const https = require('https');
+const fs = require('fs'); 
 require("dotenv").config();
 const medicineRouter = require('./routes/medicineRoute.js');
 const dogRouter = require('./routes/dogRouter')
-const rescuedDogRouter =require("./routes/rescuedDogRoute.js"); //import  rescuedDogRoute
+const rescuedDogRouter =require("./routes/rescuedDogRoute.js");
 const appointmentRouter = require("./routes/Appointment-routes.js");
 const userRouter = require("./routes/User-routes");
 const salesRouter = require("./routes/salesRoute.js")
-
 
 const app = express();
 app.disable('x-powered-by');
@@ -53,8 +54,20 @@ const initialize = async () => {
 
 const startServer = async () => {
   await initialize();
-  app.listen(process.env.PORT || 8000);
-  console.log('Server started');
+
+  // TODO: Add correct paths to privateKey and certificate
+  // Read the SSL certificate and private key files
+  const privateKey = fs.readFileSync('path/to/private-key.pem', 'utf8');
+  const certificate = fs.readFileSync('path/to/certificate.pem', 'utf8');
+  const credentials = { key: privateKey, cert: certificate };
+
+  // Create an HTTPS server
+  const httpsServer = https.createServer(credentials, app);
+
+  httpsServer.listen(process.env.PORT || 8000, () => {
+    console.log('Server started with HTTPS');
+  });
 };
+
 
 startServer();
