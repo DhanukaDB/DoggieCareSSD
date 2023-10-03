@@ -68,5 +68,8 @@ const startServer = async () => {
   });
 };
 
+app.route("/").get((req, res) => {
+  res.send("Secure Software Development Assignment Backend");
+});
 
 startServer();
