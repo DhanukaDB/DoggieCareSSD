@@ -44,11 +44,11 @@ function SideBar() {
   }
 
   const signin = ()=>{
-    navigate("/studentsignin")
+    navigate("/susersignin")
   }
 
   const signup = ()=>{
-    navigate("/studentsignup")
+    navigate("/susersignup")
   }
 
 
@@ -90,7 +90,7 @@ function SideBar() {
       
       {!localStorage.getItem("authToken") && (
                   <Button
-                    href="/studentsignup"
+                    href="/susersignup"
                     sx={{ marginLeft: "10%" }}
                     variant="secondary"
                   >
@@ -100,7 +100,7 @@ function SideBar() {
 
       {!localStorage.getItem("authToken") && (
                   <Button
-                    href="/studentsignin"
+                    href="/susersignin"
                     sx={{ marginLeft: "2%" }}
                     variant="secondary"
                   >

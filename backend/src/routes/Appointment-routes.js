@@ -23,7 +23,7 @@ router.route("/").post((req,res)=>{
     newAppointment.save().then(()=>{
         res.status(201).send(newAppointment)
     }).catch((err)=>{
-        console.log(err);
+      
     })
 
 })
@@ -32,7 +32,7 @@ router.route("/").get((req,res)=>{
     Appointment.find().then((appointments)=>{
         res.json(appointments)
     }).catch((err)=>{
-        console.log(err)
+      
     })
 })
 
@@ -61,7 +61,7 @@ router.route("/:id").put(async (req,res) => {
     .then(() => {
         res.status(200).send({status: "Appointment updated"})
     }).catch((err) =>{
-        console.log(err);
+       
         res.status(500).send({status: "Error with updating data", error: err.messege});
     })
 })
@@ -73,7 +73,7 @@ router.route("/:id").delete(async (req,res) => {
     .then(() =>{
         res.status(200).send({status: "Appointment deleted"});
     }).catch((errr) => {
-        console.log(err.messege);
+        
         res.status(500).send({status: "Error with delete Appointment", error: err.messege});
     })
 })
@@ -84,7 +84,7 @@ router.route("/:id").get(async (req, res) => {
     .then((appointments) => {
         res.status(200).send({status: "appointments fetched", appointments})
     }).catch(() => {
-        console.log(err.messege);
+     
         res.status(500).send({status: "Error with get usappointmentser",error: err.messege});
     })
 })

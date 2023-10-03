@@ -8,7 +8,7 @@ import { GoogleOAuthProvider, GoogleLogin,googleLogout} from '@react-oauth/googl
 
 const clientId = "386699752389-pr7a5ulrehqpjgu1021i2ltrvtcruh3r.apps.googleusercontent.com";
 
-const StudentSignin = (props) => {
+const SuserSignin = (props) => {
 
   const onSuccess = async (res) => {
     console.log("Login Success: currentUser:", res.data.profileObj);
@@ -44,13 +44,13 @@ const StudentSignin = (props) => {
       return;
     }
 
-    const newStudent = {
+    const newSuser = {
       email,
       password,
     };
 
     await axois
-      .post("http://localhost:8000/api/auth/studentlogin", newStudent)
+      .post("http://localhost:8000/api/auth/suserlogin", newSuser)
       .then((res) => {
         alert("Login Success");
 
@@ -126,7 +126,7 @@ const StudentSignin = (props) => {
                   </GoogleOAuthProvider>
                   <br />
                   <h5>
-                    <Link to="/studentsignup" id="link">
+                    <Link to="/susersignup" id="link">
                       {" "}
                       Don't have an account?{" "}
                     </Link>
@@ -148,4 +148,4 @@ const StudentSignin = (props) => {
   );
 };
 
-export default StudentSignin;
+export default SuserSignin;

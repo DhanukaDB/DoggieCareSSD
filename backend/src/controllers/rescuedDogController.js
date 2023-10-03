@@ -40,11 +40,11 @@ exports.addNewRescuedDog= async (req, res) => {
              res.json("Stray Puppy Added")
     
         }).catch((err) => {
-            console.log(err);
+           
         })
       
     }).catch((err) =>{
-        console.log(err);
+      
    })
     }
 
@@ -64,7 +64,7 @@ exports.addNewRescuedDog= async (req, res) => {
     const update = await rescuedDogsDetails.findByIdAndUpdate(dogid, updateAdoptDog).then(() => {
       res.status(200).send({status: "Adoption details successfully updated"})
     }).catch((err) => {
-        console.log(err);
+      
         res.status(500).send({status: "Error with updating data", error: err.message});
     })   
   }
@@ -77,7 +77,7 @@ exports.viewRescuedDogs= async (req, res) => {
     res.json(dogs)
 
 }).catch((err) => {
-    console.log(err)
+   
 })
 
 }
@@ -100,7 +100,7 @@ exports.viewRescuedDogs= async (req, res) => {
     const dog = await rescuedDogsDetails.findById(dogid).then((dog) => {
         res.status(200).send({status: "  fetched", dog})
     }).catch(() => {
-         console.log(err.message);
+         
          res.status(500).send({status:"Error with get " , error: err.message})
     })
 

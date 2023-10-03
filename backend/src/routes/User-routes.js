@@ -1,5 +1,5 @@
 const router = require("express").Router();
-let User = require("../models/Student");
+let User = require("../models/Suser");
 
 router.route("/").post((req,res)=>{
     const name = req.body.name;
@@ -17,7 +17,7 @@ router.route("/").post((req,res)=>{
     newUser.save().then(()=>{
         res.status(201).send(newUser)
     }).catch((err)=>{
-        console.log(err);
+       
     })
 })
 
@@ -25,7 +25,7 @@ router.route("/").get((req,res)=>{
     User.find().then((user)=>{
         res.json(user)
     }).catch((err)=>{
-        console.log(err)
+      
     })
 })
 
@@ -48,7 +48,7 @@ router.route("/:id").put(async (req,res) => {
     .then(() => {
         res.status(200).send({status: "User updated"})
     }).catch((err) =>{
-        console.log(err);
+        
         res.status(500).send({status: "Error with updating data", error: err.messege});
     })
 })
@@ -60,7 +60,7 @@ router.route("/:id").delete(async (req,res) => {
     .then(() =>{
         res.status(200).send({status: "User deleted"});
     }).catch((errr) => {
-        console.log(err.messege);
+      
         res.status(500).send({status: "Error with delete Appointment", error: err.messege});
     })
 })
@@ -73,7 +73,7 @@ router.route("/:id").get(async (req, res) => {
     .then((users) => {
         res.status(200).send({status: "user fetched", users})
     }).catch(() => {
-        console.log(err.messege);
+      
         res.status(500).send({status: "Error with get user",error: err.messege});
     })
 })

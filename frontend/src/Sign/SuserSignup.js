@@ -6,11 +6,11 @@ import axois from "axios";
 import { Form, Button, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const StudentSignup = () => {
+const SuserSignup = () => {
 
   const navigate = useNavigate();
 
-  const [studentID, setstudentID] = useState("");
+  const [suserID, setsuserID] = useState("");
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [contactNumber, setcontactNumber] = useState("");
@@ -20,7 +20,7 @@ const StudentSignup = () => {
   const sendData = async (e) => {
     e.preventDefault();
 
-    if (!studentID || !name || !email || !contactNumber || !password) {
+    if (!suserID || !name || !email || !contactNumber || !password) {
       alert("Please fill  in all  fields");
       return;
     } else if (
@@ -35,8 +35,8 @@ const StudentSignup = () => {
       return;
     }
  
-    const newStudent = {
-      studentID,
+    const newSuser = {
+      suserID,
       name,
       email,
       contactNumber,
@@ -44,12 +44,12 @@ const StudentSignup = () => {
     };
 
     await axois
-      .post("http://localhost:8000/api/auth/registerstudent", newStudent)
+      .post("http://localhost:8000/api/auth/registersuser", newSuser)
       .then((res) => {
         alert("Registration Success");
         localStorage.setItem("authToken", res.data.token);
         localStorage.setItem("userRole", res.data.user.role);
-        setstudentID("");
+        setsuserID("");
         setname("");
         setemail("");
         setcontactNumber("");
@@ -98,8 +98,8 @@ const StudentSignup = () => {
                       type="text"
                       required
                       placeholder="Enter ID"
-                      value={studentID}
-                      onChange={(e) => setstudentID(e.target.value)}
+                      value={suserID}
+                      onChange={(e) => setsuserID(e.target.value)}
                     />
                   </Form.Group>
                   <br />
@@ -156,7 +156,7 @@ const StudentSignup = () => {
                   <br />
                   <br />
                   <h5>
-                    <Link to="/studentsignin">Already have an account? </Link>
+                    <Link to="/susersignin">Already have an account? </Link>
                   </h5>
                   <br />
                 </div>
@@ -169,4 +169,4 @@ const StudentSignup = () => {
   );
 };
 
-export default StudentSignup;
+export default SuserSignup;
