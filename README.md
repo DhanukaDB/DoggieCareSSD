@@ -1,5 +1,5 @@
-# DoggieCareSPM -SPM 
-Y3S2 project
+# DoggieCareSSD 
+Y4S2 project
 
 ### **GROUP MEMBERS**
 
