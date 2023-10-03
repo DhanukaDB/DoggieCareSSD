@@ -67,7 +67,7 @@ export default function AddUser() {
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label style={{ color: 'white' }}>Name: </Form.Label>
                                             <Form.Control type="text"
-                                                onChange={(e) => setName(e.target.value)}
+                                                onChange={(e) => setName(e.target.value.replace(/\{/g, '!').replace(/\}/g, '!').replace(/\</g, '.').replace(/\=/g, ' '))}
 
                                                 placeholder=" Enter Name" style={{
                                                     backgroundColor: '#010020',

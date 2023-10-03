@@ -1,4 +1,5 @@
-const Admin = require("../models/Admin");const Student = require("../models/Student");
+const Admin = require("../models/Admin");
+const Student = require("../models/Student");
 
 exports.registerStudent = async (req, res, next) => {
   const { studentID, name, email, contactNumber, password } = req.body;

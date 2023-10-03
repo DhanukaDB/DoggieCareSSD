@@ -40,7 +40,7 @@ app.use("/sales", salesRouter)
 
 app.use('/api/auth', require('./routes/authenticationRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
-
+app.use('/api/student', require('./routes/studentRoutes'));
 
 const initialize = async () => {
   try {

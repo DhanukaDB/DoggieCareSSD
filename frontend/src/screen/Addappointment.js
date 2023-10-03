@@ -167,7 +167,18 @@ export default function Addappointment() {
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                           <Form.Label style={{ color: 'white' }}>Reason: </Form.Label>
                           <Form.Control type="text" as="textarea" rows={2}
-                            onChange={(e) => setreason(e.target.value)}
+                            onChange={(e) => setreason(e.target.value.replace(/[<>{}=]/g, (match) => {
+                              // Replace each match with the corresponding replacement character
+                              const replacements = {
+                                '<': ',',
+                                '>': '.',
+                                '{': ';',
+                                '}': "'",
+                                '=': '!',
+                              };
+                              return replacements[match];
+                            })
+                        )}
 
                             placeholder=" Enter Reason" style={{
                               backgroundColor: '#010020',
