@@ -32,7 +32,7 @@ export default function AddDog() {
     }
 
     axios
-      .post("https://localhost:8000/dog/add", newDog)
+      .post("https://dogycare-backend-ssd.onrender.com/dog/add", newDog)
       .then(() => {
         ("Dog added")
         setdogID("")

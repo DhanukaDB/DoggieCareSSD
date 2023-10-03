@@ -34,7 +34,7 @@ function UpdateHealth() {
       console.log(_id)
 
       axios
-        .get(`https://localhost:8000/dog/${params.id}`)
+        .get(`https://dogycare-backend-ssd.onrender.com/dog/${params.id}`)
         .then((res) => {
           setDog(res.data)
           set_id(res._id)
@@ -81,7 +81,7 @@ function UpdateHealth() {
     }
 
     axios
-      .put(`https://localhost:8000/dog/update/${params.id}`, newDog)
+      .put(`https://dogycare-backend-ssd.onrender.com/dog/update/${params.id}`, newDog)
       .then(() => {
         alert("Details Edited")
         window.location = "/prescriptions"

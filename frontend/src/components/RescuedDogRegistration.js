@@ -35,7 +35,7 @@ export default function DogRegistration() {
     }
 
     axios
-      .post("https://localhost:8000/createRescuedDog/add", newRescuedDog)
+      .post("https://dogycare-backend-ssd.onrender.com/createRescuedDog/add", newRescuedDog)
       .then(() => {
         setRescuerName("")
         setRescuerContactNo("")

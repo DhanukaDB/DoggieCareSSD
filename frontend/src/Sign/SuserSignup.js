@@ -44,7 +44,7 @@ const SuserSignup = () => {
     };
 
     await axois
-      .post("https://localhost:8000/api/auth/registersuser", newSuser)
+      .post("https://dogycare-backend-ssd.onrender.com/api/auth/registersuser", newSuser)
       .then((res) => {
         alert("Registration Success");
         localStorage.setItem("authToken", res.data.token);

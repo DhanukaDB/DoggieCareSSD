@@ -22,7 +22,7 @@ export default function DogRegistration() {
     //get funtion
     function getadoption() {     
 
-      axios.get(`https://localhost:8000/createRescuedDog/get/${params.id}`).then((res) => {
+      axios.get(`https://dogycare-backend-ssd.onrender.com/createRescuedDog/get/${params.id}`).then((res) => {
 
         setadoption(res.data);
        
@@ -62,7 +62,7 @@ export default function DogRegistration() {
       adoptDate
     }
 
-    axios.put(`https://localhost:8000/createRescuedDog/updateAdoptDog/${params.id}`, newAdoption).then(() => {
+    axios.put(`https://dogycare-backend-ssd.onrender.com/createRescuedDog/updateAdoptDog/${params.id}`, newAdoption).then(() => {
       alert("Puppies Updated");
       window.location = '/viewstrayPuppies';
 

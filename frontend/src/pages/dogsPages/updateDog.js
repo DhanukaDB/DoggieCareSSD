@@ -35,7 +35,7 @@ function UpdateDog() {
 
   useEffect(() => {
     axios
-      .get(`https://localhost:8000/dog/${id}`)
+      .get(`https://dogycare-backend-ssd.onrender.com/dog/${id}`)
       .then((dogResponse) => {
         console.log(dogResponse.data.dog)
         setdogID(dogResponse.data.dog.dogID)
@@ -82,7 +82,7 @@ function UpdateDog() {
     }
 
     axios
-      .put(`https://localhost:8000/dog/update/${id}`, dog)
+      .put(`https://dogycare-backend-ssd.onrender.com/dog/update/${id}`, dog)
       .then(() => {
         alert("Sent sucessfully")
         window.location = `/viewDogs`

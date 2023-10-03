@@ -33,7 +33,7 @@ function ViewRescuedDogs(props) {
   useEffect(() => {
     function getRescuedDogs() {
       axios
-        .get("https://localhost:8000/createRescuedDog/")
+        .get("https://dogycare-backend-ssd.onrender.com/createRescuedDog/")
         .then((res) => {
           setRescuedDogs(res.data)
         })
@@ -47,7 +47,7 @@ function ViewRescuedDogs(props) {
   const onDelete = (_id) => {
     const r = window.confirm("Do you really want to Remove this Record?")
     if (r === true) {
-      axios.delete(`https://localhost:8000/createRescuedDog/delete/${_id}`)
+      axios.delete(`https://dogycare-backend-ssd.onrender.com/createRescuedDog/delete/${_id}`)
       alert("Deleted Successfully")
       window.location.reload()
     } else {
@@ -139,7 +139,7 @@ function ViewRescuedDogs(props) {
 
     axios
       .put(
-        `https://localhost:8000/createRescuedDog/updateAdoptDog/${updateRescuedDog.id}`,
+        `https://dogycare-backend-ssd.onrender.com/createRescuedDog/updateAdoptDog/${updateRescuedDog.id}`,
         updateRescuedDog
       )
       .then(() => {

@@ -10,7 +10,7 @@ function GeneratePrescriptions(props) {
 
   useEffect(() => {
     function getPrescriptions() {
-      axios.get("https://localhost:8000/dog/").then((res) => {
+      axios.get("https://dogycare-backend-ssd.onrender.com/dog/").then((res) => {
         setPrescriptions(res.data);
       }).catch((err) => {
         alert(err.message);
