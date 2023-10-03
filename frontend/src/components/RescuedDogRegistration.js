@@ -35,7 +35,7 @@ export default function DogRegistration() {
     }
 
     axios
-      .post("http://localhost:8000/createRescuedDog/add", newRescuedDog)
+      .post("https://localhost:8000/createRescuedDog/add", newRescuedDog)
       .then(() => {
         setRescuerName("")
         setRescuerContactNo("")

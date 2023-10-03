@@ -13,7 +13,7 @@ function ViewAll() {
 
         //get funtion
         function getDog() {
-            axios.get("http://localhost:8000/dog/").then((res) => {
+            axios.get("https://localhost:8000/dog/").then((res) => {
                 setDog(res.data);
             }).catch((err) => {
                 alert(err.message);
@@ -24,7 +24,7 @@ function ViewAll() {
 
     //delete funtion
     async function deleteDog(id){        
-        await axios.delete(`http://localhost:8000/dog/delete/${id}`).then(() => {
+        await axios.delete(`https://localhost:8000/dog/delete/${id}`).then(() => {
             alert("Dog deleted successfully");
             window.location = `/viewDogs`;
 

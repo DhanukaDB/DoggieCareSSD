@@ -16,7 +16,7 @@ function Viewappointment(props) {
     useEffect(() => {
         //get funtion
         function getappointment() {
-            axios.get("http://localhost:8000/appointment/").then((res) => {
+            axios.get("https://localhost:8000/appointment/").then((res) => {
                 setappointment(res.data);
             }).catch((err) => {
                 alert(err.message);
@@ -28,7 +28,7 @@ function Viewappointment(props) {
     //delete funtion
     function onDelete(_id){
         console.log(_id);
-        axios.delete("http://localhost:8000/appointment/"+_id).then((res) =>{
+        axios.delete("https://localhost:8000/appointment/"+_id).then((res) =>{
            alert('Deleted Successfully'); 
            window.location.reload();
        }).catch((err) => {

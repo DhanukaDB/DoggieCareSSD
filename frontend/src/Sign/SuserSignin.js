@@ -50,7 +50,7 @@ const SuserSignin = (props) => {
     };
 
     await axois
-      .post("http://localhost:8000/api/auth/suserlogin", newSuser)
+      .post("https://localhost:8000/api/auth/suserlogin", newSuser)
       .then((res) => {
         alert("Login Success");
 

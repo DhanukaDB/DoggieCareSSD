@@ -25,7 +25,7 @@ export default function Addappointment() {
       nic, dogid, fee, date, time, reason
     }
 
-    axios.post("http://localhost:8000/appointment/", newAppointment).then(() => {
+    axios.post("https://localhost:8000/appointment/", newAppointment).then(() => {
       ("Appointment added")
       setName('');
       setContact('');

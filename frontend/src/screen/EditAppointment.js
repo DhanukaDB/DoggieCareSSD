@@ -30,7 +30,7 @@ function EditAppointment(props) {
 
       console.log(_id);
 
-      axios.get(`http://localhost:8000/appointment/${params.id}`).then((res) => {
+      axios.get(`https://localhost:8000/appointment/${params.id}`).then((res) => {
 
         setappointment(res.data);
         set_id(res._id);
@@ -67,7 +67,7 @@ function EditAppointment(props) {
       nic, dogid, fee, date, time, reason
     }
 
-    axios.put(`http://localhost:8000/appointment/${params.id}`, newAppointment).then(() => {
+    axios.put(`https://localhost:8000/appointment/${params.id}`, newAppointment).then(() => {
       alert("Appointment Edited");
       window.location = '/viewappointment';
 

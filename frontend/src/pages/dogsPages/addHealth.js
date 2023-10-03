@@ -19,7 +19,7 @@ function AddHealthDetails() {
 
   const { id } = useParams();
   useEffect(() => {
-    axios.get(`http://localhost:8000/dog/${id}`)
+    axios.get(`https://localhost:8000/dog/${id}`)
       .then((res) => {
         setWeight(res.data.dog.weight);
         setBloodGroup(res.data.dog.bloodGroup);
@@ -51,7 +51,7 @@ function AddHealthDetails() {
       doctor
     }
 
-    axios.put(`http://localhost:8000/dog/update/${id}`, updateDetails).then(() => {
+    axios.put(`https://localhost:8000/dog/update/${id}`, updateDetails).then(() => {
       alert("Updated sucessfully");
       window.location = `/viewDogs`;
 
