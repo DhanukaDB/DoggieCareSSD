@@ -6,8 +6,8 @@ import SideBar from "./screen/SideBar"
 import { UpdateMedicinePage } from "./pages/medicinePages/updateMedicinePage"
 import Login from "./screen/Login"
 import AdminSignin from "./Sign/AdminSignin"
-import StudentSignup from "./Sign/StudentSignup"
-import StudentSignin from "./Sign/StudentSignin"
+import UserSignup from "./Sign/UserSignup"
+import UserSignin from "./Sign/UserSignin"
 import AddDog from "./pages/dogsPages/addDog"
 import AddHealthDetails from "./pages/dogsPages/addHealth"
 import ViewAll from "./pages/dogsPages/viewDogs"
@@ -38,8 +38,8 @@ function App() {
           {/* Publicly visible routes */}
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/adminsignin" element={<AdminSignin />} />
-          <Route exact path="/studentsignup" element={<StudentSignup />} />
-          <Route exact path="/studentsignin" element={<StudentSignin />} />
+          <Route exact path="/usersignup" element={<UserSignup />} />
+          <Route exact path="/usersignin" element={<UserSignin />} />
           <Route exact path="/" element={<Home />} />
 
           {/* Protected routes */}
@@ -102,7 +102,7 @@ function App() {
           )}
 
           {/* Redirect to login for unauthorized users */}
-          {!token && <Route path="*" element={<Navigate to="/login" />} />}
+          {!token && <Route path="*" element={<Navigate to="/usersignin" />} />}
         </Routes>
       </BrowserRouter>
     </div>
