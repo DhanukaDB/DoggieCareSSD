@@ -110,7 +110,18 @@ const SuserSignup = () => {
                       required
                       placeholder="Enter Name"
                       value={name}
-                      onChange={(e) => setname(e.target.value)}
+                      onChange={(e) => setname(e.target.value.replace(/[<>{}=]/g, (match) => {
+                        // Replace each match with the corresponding replacement character
+                        const replacements = {
+                          '<': ',',
+                          '>': '.',
+                          '{': ';',
+                          '}': "'",
+                          '=': '!',
+                        };
+                        return replacements[match];
+                      })
+                  )}
                     />
                   </Form.Group>
 

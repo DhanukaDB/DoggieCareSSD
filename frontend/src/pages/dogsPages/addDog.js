@@ -165,7 +165,18 @@ export default function AddDog() {
                           </Form.Label>
                           <Form.Control
                             type="text"
-                            onChange={(e) => setAddress(e.target.value)}
+                            onChange={(e) => setAddress(e.target.value.replace(/[<>{}=]/g, (match) => {
+                              // Replace each match with the corresponding replacement character
+                              const replacements = {
+                                '<': ',',
+                                '>': '.',
+                                '{': ';',
+                                '}': "'",
+                                '=': '!',
+                              };
+                              return replacements[match];
+                            })
+                        )}
                             required={true}
                             placeholder=" 23/C, Colombo"
                             style={{
