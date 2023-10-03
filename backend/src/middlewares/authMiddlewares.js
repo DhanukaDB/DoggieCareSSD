@@ -58,6 +58,3 @@ exports.protectedStudent = async (req, res, next) => {
       .status(401)
       .json({ success: false, desc: "Something went wrong, Frobidden-" + err });
   };
-
-  
-
